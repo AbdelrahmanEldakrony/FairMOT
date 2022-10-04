@@ -76,27 +76,7 @@ def train():
 	# print(test_size)
 	# train_split, test_split = torch.utils.data.random_split(train_ds, [train_size,test_size], generator=torch.Generator().manual_seed(42))
 	train_dl = DataLoader(train_ds, batch_size=8, shuffle=True, num_workers=8, collate_fn=train_ds.collate_fn, pin_memory=True)
-	# for j in train_dl:
-	# 	img, boxes, classes, hm, info = j
-	# 	print('Image shape:3', img.shape)
-	# 	img = img[0]
-	# 	print(type(img))
-	# 	img= torchvision.transforms.ToPILImage()(img)
 
-	# 	img.show()
-	# 	exit()
-	# 	print('Imagem shaape4:', img.size)
-	# 	draw = ImageDraw.Draw(img)
-	# 	print(boxes.shape)
-	# 	boxes = boxes[0].tolist()
-	# 	plt.figure(figsize=(10, 10))
-	# 	print(boxes)
-	# 	for b in boxes:
-	# 		draw.rectangle(xy=b, outline='red', width=3)
-	# 	plt.imshow(img)
-	# 	plt.show()
-	# 	break
-	# exit()
 	device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 	epochs = 30
 
