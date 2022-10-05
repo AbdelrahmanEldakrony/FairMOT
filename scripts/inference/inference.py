@@ -38,26 +38,6 @@ import numpy as np
 
 CLASSES_NAME = ('person')
 
-# def preprocess_img(img, input_ksize):
-#     min_side, max_side = input_ksize
-#     h, w = img.height, img.width
-#     _pad = 32
-#     smallest_side = min(w, h)
-#     largest_side = max(w, h)
-#     scale = min_side / smallest_side
-#     if largest_side * scale > max_side:
-#         scale = max_side / largest_side
-#     nw, nh = int(scale * w), int(scale * h)
-#     img_resized = np.array(img.resize((nw, nh)))
-
-#     pad_w = _pad - nw % _pad
-#     pad_h = _pad - nh % _pad
-
-#     img_paded = np.zeros(shape=[nh + pad_h, nw + pad_w, 3], dtype=np.uint8)
-#     img_paded[:nh, :nw, :] = img_resized
-
-#     return img_paded, {'raw_height': h, 'raw_width': w}
-
 
 def preprocess_img(img, input_ksize):
 
