@@ -60,9 +60,6 @@ class VOCDataset(Dataset):
 
         else:
             boxes = np.array(label['boxes'])
-        # boxes_w, boxes_h = boxes[..., 2] - boxes[..., 0], boxes[..., 3] - boxes[..., 1]
-        # ct = np.array([(boxes[..., 0] + boxes[..., 2]) / 2,
-        #                (boxes[..., 1] + boxes[..., 3]) / 2], dtype=np.float32).T
 
         # print('Sampled, boxes1:',sample, boxes)
         # print(type(img))
@@ -225,18 +222,3 @@ class VOCDataset(Dataset):
         batch_hms = torch.stack(pad_hm_list)
 
         return batch_imgs, batch_boxes, batch_classes, batch_hms, infos
-
-
-# if __name__ == '__main__':
-#     # ds = VOCDataset('../../../PASCAL_VOC/VOCdevkit/VOC2012', resize_size=(512, 512))
-#     # dl = DataLoader(ds, batch_size=12, collate_fn=ds.collate_fn)
-#     # batch = next(iter(dl))
-
-#     # # print(len(dl))
-#     # # import tqdm
-#     # # for i, data in enumerate(tqdm.tqdm(dl)):
-#     # #     # pass
-#     # #     imgs, boxes, classes, hms, infos = data
-#     # #     for b in range(hms.size(0)):
-#     # #         if hms[b].eq(1).sum(0).gt(0).sum() != classes[b].gt(0).sum():
-#     # #             import pdb; pdb.set_trace()
